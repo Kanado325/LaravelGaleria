@@ -22,4 +22,23 @@ Route::post('/photos/{photo}/like', [photoController::class, 'like'])
     ->middleware('auth')
     ->name('photos.like');
 
+Route::delete('/photos/{photo}', [PhotoController::class, 'destroy'])
+    ->name('photos.destroy')
+    ->middleware('auth');
+
+
+Route::get('/edit/{photo}', [photoController::class, 'edit'])
+    ->name('edit')
+    ->middleware('auth');
+
+Route::put('/photos/{photo}', [PhotoController::class, 'update'])
+    ->name('photos.update')
+    ->middleware('auth');
+
+Route::delete('/photos/{photo}', [PhotoController::class, 'destroy'])
+    ->name('photos.destroy')
+    ->middleware('auth');
+
+    
+
 require __DIR__.'/auth.php';
